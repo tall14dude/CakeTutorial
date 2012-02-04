@@ -3,10 +3,18 @@
  * 
  */
 class UsersController extends AppController {
+	
+	/**
+	 * This function makes specified functions 
+	 * public and accessible to anyone.
+	 *
+	 * @author  
+	 */
 	public function beforeFilter(){
 		parent::beforeFilter();
 		$this->Auth->allow('add');
 	}
+
 	public function add(){
 		if (!empty($this->data)){
 			$this->User->create();
@@ -22,6 +30,9 @@ class UsersController extends AppController {
 	}
 	public function logout() {
 		$this->redirect($this->Auth->logout());
+	}
+	public function dashboard(){
+		
 	}
 }
 

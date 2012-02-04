@@ -5,4 +5,7 @@ echo $this->Form->inputs(array(
 	'username',
 	'password'));
 echo $this->Form->end('Login');
+echo $this->Html->link(
+	'Register',
+	array('controller' => 'users', 'action' => 'add'));
  ?>
