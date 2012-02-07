@@ -17,6 +17,10 @@ class AppController extends Controller {
 		'Session'
 	);
 	public function beforeFilter(){
+		$user = $this->Auth->user();
+		if(!empty($user)){
+			Configure::write('User', $user[$this->Auth->getModel()->alias]);
+		}
 		if ($this->Auth->getModel()->hasField('active')){
 			$this->Auth->userScope = array('active' => 1);
 		}
@@ -38,6 +42,13 @@ class AppController extends Controller {
 	}
 	public function isAuthorized() {
 		return true;	
+	}
+	public function beforeRender(){
+		$user = $this->Auth->user();
+		if (!empty($user)){
+			$user = $user[$this->Auth->getModel()->alias];
+		}
+		$this->set(compact('user'));
 	}
 }
 

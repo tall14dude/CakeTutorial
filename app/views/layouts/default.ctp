@@ -41,7 +41,19 @@
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
-
+			<?php if (!empty($user)){
+				 echo $this->Html->link('Log Out', array(
+				'plugin' => NULL,
+				'admin' => FALSE,
+				'controller' => 'users',
+				'action' => 'logout')); 
+				} else {
+					echo $this->Html->link('Login', array(
+					'plugin' => NULL,
+					'admin' => false,
+					'controller' => 'users',
+					'action' => 'logout'));
+				} ?>
 			<?php echo $content_for_layout; ?>
 
 		</div>

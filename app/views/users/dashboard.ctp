@@ -1,2 +1,2 @@
-<h3>Welcome!</h3>
-<p>This is your dashboard.</p>
+<?php if (!empty($user)) { ?>
+<h1> Welcome <?php echo $user['username']; } ?>!</h1>
