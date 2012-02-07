@@ -30,6 +30,7 @@ class AppController extends Controller {
 						),
 					'recursive' => -1));
 					if ( !empty($user) && $this->Auth->login($user)){
+						print_r($user);
 						$this->redirect($this->Auth->redirect());
 					}
 			}
